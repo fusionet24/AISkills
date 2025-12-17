@@ -1,3 +1,9 @@
+---
+name: unity-catalog-tagger
+description: Manage Unity Catalog metadata tags for data governance and classification. Use when applying tags to tables and columns, classifying data sensitivity (PII, PHI), marking data quality attributes, or when user mentions Unity Catalog tagging, metadata management, data governance, or compliance workflows.
+version: 1.0.0
+---
+
 # Unity Catalog Tagger Skill
 
 ## Overview

@@ -1,6 +1,7 @@
 ---
 name: databricks-query
 description: Execute SQL queries against Databricks using the DBSQL MCP server. Use when querying Unity Catalog tables, running SQL analytics, exploring Databricks data, or when user mentions Databricks queries, SQL execution, Unity Catalog, or data warehouse operations. Handles query execution, result formatting, and error handling.
+version: 1.0.0
 ---
 
 # Databricks Query Skill
