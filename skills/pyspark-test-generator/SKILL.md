@@ -335,7 +335,7 @@ def generate_test_suite(table_name, profile_results):
 
     for column_name, column_profile in profile_results["columns"].items():
         # Completeness test for non-nullable columns
-        if column_profile.get("nullable", True) == False:
+        if not column_profile.get("nullable", True):
             tests.append(f"""
 def test_completeness_{column_name}(spark):
     '''Test: {column_name} should have no null values'''
