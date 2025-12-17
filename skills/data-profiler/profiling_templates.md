@@ -57,6 +57,7 @@ def profile_json(file_path: str) -> dict:
 ## Parquet Profiling Template
 
 ```python
+import os
 import pandas as pd
 import pyarrow.parquet as pq
 
