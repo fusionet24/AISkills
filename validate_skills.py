@@ -9,12 +9,11 @@ This script validates SKILL.md files to ensure they follow the Anthropic skills 
 - Required sections in markdown
 """
 
-import os
 import sys
 import re
 import yaml
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional
 
 
 class SkillValidator:
@@ -103,7 +102,8 @@ class SkillValidator:
     def _extract_frontmatter(self, content: str, skill_file: Path) -> Optional[Dict]:
         """Extract YAML frontmatter from markdown content."""
         # Match YAML frontmatter between --- delimiters
-        match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
+        # Flexible pattern that handles optional trailing newline
+        match = re.match(r'^---\s*\n(.*?)\n---\s*(?:\n|$)', content, re.DOTALL)
         
         if not match:
             self.errors.append(f"{skill_file}: Missing or invalid YAML frontmatter")
