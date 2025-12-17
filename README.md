@@ -2,6 +2,8 @@
 
 A centralized repository for AI skills following the Anthropic skills pattern. This repository enables you to develop, test, and maintain reusable AI skills for Claude and GPT-5.2 that can be shared across projects.
 
+> 📚 **New here?** Check out the [Quick Start Guide](QUICKSTART.md) to get started quickly!
+
 ## 🎯 Overview
 
 This repository follows the [Anthropic skills pattern](https://github.com/anthropics/skills) to create modular, reusable AI capabilities. Each skill is self-contained with clear documentation, making it easy to:
