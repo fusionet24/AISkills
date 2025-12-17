@@ -194,6 +194,10 @@ print("Table optimized")
 
 # COMMAND ----------
 
+from pyspark.sql.functions import count, when, col
+
+# COMMAND ----------
+
 # Define data quality checks
 target_table = "main.sales.customer_revenue"
 df = spark.table(target_table)
@@ -213,7 +217,6 @@ for col_name, null_count in null_check.asDict().items():
 # COMMAND ----------
 
 # Check 2: No duplicates
-from pyspark.sql.functions import count
 
 duplicate_count = (df
     .groupBy("customer_id", "transaction_id")
