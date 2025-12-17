@@ -181,16 +181,6 @@ gh act pull_request
 5. **Test thoroughly** - Ensure examples work and instructions are clear
 6. **Update regularly** - Keep skills current with best practices
 
-## 🤝 Contributing
-
-We welcome contributions! To add a new skill:
-
-1. Fork the repository
-2. Create a new skill using the template
-3. Ensure validation passes
-4. Submit a pull request
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 📖 Additional Resources
 
@@ -201,7 +191,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 ## 📄 License
 
 This repository is available under the MIT License. See [LICENSE](LICENSE) for details.
-
-## 🙏 Acknowledgments
-
-This repository follows the skills pattern developed by Anthropic for Claude AI. Thanks to the Anthropic team for creating this excellent pattern for organizing AI capabilities.
