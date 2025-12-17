@@ -45,7 +45,7 @@ SELECT
     SUM(revenue) as total_revenue,
     COUNT(*) as transaction_count
 FROM main.sales.transactions
-WHERE date >= '2024-01-01'
+WHERE date >= '2025-01-01'
 GROUP BY customer_id
 ORDER BY total_revenue DESC
 LIMIT 100;
