@@ -246,6 +246,55 @@ print(f"Date range: {date_stats['min_date']} to {date_stats['max_date']}")
 print("✓ All data quality checks passed")
 ```
 
+### 5. Parameterized Notebook with Widgets
+
+```python
+# Databricks notebook source
+
+# COMMAND ----------
+
+# Define notebook widgets for parameterization
+dbutils.widgets.text("date", "2024-01-01", "Processing Date")
+dbutils.widgets.dropdown("mode", "append", ["append", "overwrite"], "Write Mode")
+dbutils.widgets.text("table_name", "main.sales.daily_summary", "Target Table")
+
+# Get widget values
+processing_date = dbutils.widgets.get("date")
+write_mode = dbutils.widgets.get("mode")
+target_table = dbutils.widgets.get("table_name")
+
+print(f"Parameters: date={processing_date}, mode={write_mode}, table={target_table}")
+
+# COMMAND ----------
+
+# Read data for specific date
+source_path = f"abfss://container@account.dfs.core.windows.net/data/date={processing_date}/"
+
+df = spark.read.format("parquet").load(source_path)
+print(f"Loaded {df.count()} rows for {processing_date}")
+
+# COMMAND ----------
+
+# Apply transformations
+from pyspark.sql.functions import col, lit, current_timestamp
+
+df_transformed = (df
+    .withColumn("processing_date", lit(processing_date))
+    .withColumn("load_timestamp", current_timestamp())
+)
+
+# COMMAND ----------
+
+# Write to target table
+(df_transformed.write
+    .format("delta")
+    .mode(write_mode)
+    .saveAsTable(target_table)
+)
+
+print(f"Data written to {target_table} in {write_mode} mode")
+```
+
 ## Notebook Generation Pattern
 
 ```python
@@ -328,6 +377,8 @@ client.workspace.import_(
 )
 
 # Run notebook as a job
+# notebook_params maps to widget parameters defined in the notebook (see template #5)
+# The "date" key corresponds to dbutils.widgets.text("date", ...) in the notebook
 job_run = client.jobs.run_now(
     job_id=job_id,  # Existing job ID
     notebook_params={"date": "2024-01-01"}
