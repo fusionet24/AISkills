@@ -1,6 +1,7 @@
 ---
 name: azure-blob-storage
 description: Connect to and interact with Azure Blob Storage (ADLS Gen2). Use when working with Azure blob storage, listing containers, reading files, uploading data, or when user mentions Azure storage, blob containers, or ADLS. Handles authentication, container operations, and blob management.
+version: 1.0.0
 ---
 
 # Azure Blob Storage Skill

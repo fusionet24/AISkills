@@ -1,6 +1,7 @@
 ---
 name: data-profiler
 description: Profile datasets to understand schema, quality, and characteristics. Use when analyzing data files (CSV, JSON, Parquet), discovering dataset properties, assessing data quality, or when user mentions data profiling, schema detection, data analysis, or quality metrics. Provides basic and intermediate profiling including distributions, uniqueness, and pattern detection.
+version: 1.0.0
 ---
 
 # Data Profiler Skill

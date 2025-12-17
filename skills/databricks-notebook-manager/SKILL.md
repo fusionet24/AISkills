@@ -1,6 +1,7 @@
 ---
 name: databricks-notebook-manager
 description: Create and manage Databricks notebooks programmatically. Use when generating ingestion code, creating ETL notebooks, executing Databricks workflows, or when user mentions notebook creation, job automation, or data pipeline implementation in Databricks. Handles notebook generation, execution, and results retrieval.
+version: 1.0.0
 ---
 
 # Databricks Notebook Manager Skill
