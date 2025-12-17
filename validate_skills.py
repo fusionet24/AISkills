@@ -177,7 +177,19 @@ class SkillValidator:
     
     def _check_unique_names(self) -> bool:
         """Check for duplicate skill names."""
-        # This is already enforced by directory structure, but we check anyway
+        # Directory structure enforces uniqueness, but we verify anyway
+        # This would only catch errors if someone manually edits skill names
+        # without renaming directories
+        name_counts = {}
+        for name in self.skill_names:
+            name_counts[name] = name_counts.get(name, 0) + 1
+        
+        duplicates = [name for name, count in name_counts.items() if count > 1]
+        if duplicates:
+            self.errors.append(
+                f"Duplicate skill names found: {', '.join(duplicates)}"
+            )
+            return False
         return True
     
     def print_results(self) -> None:
