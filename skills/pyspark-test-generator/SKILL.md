@@ -319,6 +319,8 @@ def test_business_rule_order_total(spark, table_name):
 Generate a complete test suite from profiling results:
 
 ```python
+from datetime import datetime
+
 def generate_test_suite(table_name, profile_results):
     """
     Generate complete test suite based on profiling results.
